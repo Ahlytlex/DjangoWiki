@@ -18,13 +18,15 @@
 #sbWrapper{
     display: flex;
     height: 100px;
-    width: 280px;
+    width: 400px;
     align-items: flex-end;
     justify-content: space-evenly;
     
 }
 
 #sbItems{
+    display: flex;
+    flex-wrap: nowrap;
     margin-bottom: 10px;
 }
 
