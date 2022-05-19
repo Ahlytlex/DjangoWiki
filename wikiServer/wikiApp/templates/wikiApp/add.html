@@ -24,14 +24,16 @@
             <div id="sideWrapper">
                 <a href="{% url 'wiki:goHome' %}">Main Page</a>
                 <a href="{% url 'wiki:newPage' %}">Add A Page</a>
-                <a href="{% url 'wiki:editPage' entryName=view_name %}">Edit This Page</a>
                 <a href="{% url 'wiki:randPage' %}">Random Page</a>
             </div>
             <div id="mainContent">
-                <H1></H1>
-                {% autoescape off%}
-                {{entry_contents}}
-                {% endautoescape %}
+                <H1>Add New Page</H1>
+                <form action="{% url 'wiki:pageMan' %}" method="POST">
+                    {% csrf_token %}
+                    <input  type="text" name="Title" placeholder="Title">
+                    <input  type="text" name="Content" placeholder="Content" width=100% height=50%>
+                    <input type="submit" value="Submit">
+                </form>
             </div>
         </div>
     </body>

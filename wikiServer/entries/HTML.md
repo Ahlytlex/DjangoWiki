@@ -1,11 +1,1 @@
-# HTML
-
-HTML is a markup language that can be used to define the structure of a web page. HTML elements include
-
-* headings
-* paragraphs
-* lists
-* links
-* and more!
-
-The most recent major version of HTML is HTML5.
+HTML is a boring language and i want to never use it again, i made this jsut to fix the broken link

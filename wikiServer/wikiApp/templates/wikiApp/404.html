@@ -13,16 +13,29 @@
             <div id="sbWrapper">
                 <a id="sbItems" href="#">Sign Up</a>
                 <a id="sbItems" href="#">Log In</a>
-                <input id="sbItems" type="text" placeholder="Search..">
+                <form action="{% url 'wiki:parsePage' %}" method="POST">
+                    {% csrf_token %}
+                    <input id="sbItems" type="text" name="EName" placeholder="Search..">
+                    <input type="submit" value="Submit">
+                </form>
             </div>
         </div>
         <div id="mainWrapper">
             <div id="sideWrapper">
-                <a id="homeLink" href="index.html">Main Page</a>
-                <a href="#">Edit This Page</a>
+                <a href="{% url 'wiki:goHome' %}">Main Page</a>
+                <a href="{% url 'wiki:randPage' %}">Random Page</a>
             </div>
             <div id="mainContent">
                 <h1>404 Entry Not Found Check Your Spelling If You are Like Me</h1>
+                {% if empty %}
+                <p>There were no results found</p>
+                {% else %}
+                <ul>
+                {% for i in results %}
+                    <li><a href="{% url 'wiki:entry' i %}">{{i}}</a></li>
+                {% endfor %}
+                </ul>
+                {% endif %}
             </div>
         </div>
     </body>
